@@ -1,19 +1,19 @@
 FROM node:14
 	
 
-	# Create app directory
-	WORKDIR /usr/src/app
+# Create app directory
+WORKDIR /usr/src/app
 	
 
-	COPY package*.json ./
+COPY docker/package*.json ./
 	
 
-	RUN npm install
+RUN npm install
 	
 
-	# Bundle app source
-	COPY . .
+
+COPY ./docker .
 	
 
-	EXPOSE 5000
-	CMD [ "node", "app.js" ]
+EXPOSE 5000
+CMD [ "node", "app.js" ]
